@@ -712,7 +712,7 @@ getSymbolTableEntry e strtlb =
     return $ EST (nameIdx,name) sec typ bind other sTlbIdx symVal size
 
 sectionByIndex :: Elf -> ElfSectionIndex -> Maybe ElfSection
-sectionByIndex e (SHNIndex i) = lookup i . zip [1..] $ (elfSections e)
+sectionByIndex e (SHNIndex i) = lookup i . zip [0..] $ (elfSections e)
 sectionByIndex _ _ = Nothing
 
 infoToTypeAndBind :: Word8 -> (ElfSymbolType,ElfSymbolBinding)
